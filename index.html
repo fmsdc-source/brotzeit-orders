@@ -29,8 +29,9 @@
   .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   .item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
   .item .name{font-family:'Marcellus',serif;font-size:1.1rem;letter-spacing:.04em}
+  .item .en{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:400;margin:2px 0 4px}
   .item .desc{font-size:.8rem;color:var(--muted)}
-  .item .price{font-size:.8rem;color:var(--gold);font-weight:400;letter-spacing:.06em}
+  .item .price{font-size:.85rem;color:var(--ink);font-weight:400;letter-spacing:.06em}
   .qty{display:flex;align-items:center;gap:12px;flex-shrink:0}
   .qty button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer;transition:all .2s;line-height:1}
   .qty button:hover{border-color:var(--gold);color:var(--gold)}
@@ -115,11 +116,11 @@
 <script>
   // ===== EDIT YOUR MENU HERE =====
   const MENU = [
-    {name:"Roggenbrot",      desc:"Classic rye sourdough, dense and aromatic", price:9},
-    {name:"Dinkelbrot",      desc:"Spelt loaf, soft crumb, nutty crust",       price:9},
-    {name:"Bauernbrot",      desc:"Rustic farmhouse wheat-rye loaf",           price:8},
-    {name:"Laugenbrezel (4)",desc:"Lye pretzels with coarse salt",             price:10},
-    {name:"Brötchen (6)",    desc:"Crusty German breakfast rolls",             price:9}
+    {name:"Rheingauer Weißbrot",          en:"White bread",                       desc:"Thin, crackling crust and a soft, almost buttery crumb.", price:15},
+    {name:"Allgäuer Erntebrot",           en:"Harvest bread",                     desc:"Whole wheat, wheat germ and bran, with the nutty aroma of a wheat field at harvest.", price:17},
+    {name:"Pfälzer Landbrot",             en:"Country bread with chia, flax &amp; hemp seeds", desc:"Rustic loaf with a golden crumb and chewy crust, studded with seeds.", price:17},
+    {name:"Holsteiner Feldbrot",          en:"Field bread",                       desc:"Wheat and whole-rye field blend, a little darker and earthier than a classic country loaf.", price:17},
+    {name:"Westfälisches Roggenmischbrot",en:"Rye bread",                         desc:"30% rye and 20% whole wheat, with a deep, hearty flavor.", price:20}
   ];
   // ================================
   const qty = {};
@@ -127,7 +128,7 @@
   MENU.forEach((m,i)=>{
     qty[i]=0;
     const d=document.createElement('div'); d.className='item';
-    d.innerHTML=`<div><div class="name">${m.name}</div><div class="desc">${m.desc}</div><div class="price">$${m.price.toFixed(2)}</div></div>
+    d.innerHTML=`<div><div class="name">${m.name}</div><div class="en">${m.en}</div><div class="desc">${m.desc}</div><div class="price">$${m.price.toFixed(2)}</div></div>
       <div class="qty"><button type="button" aria-label="Less" data-i="${i}" data-d="-1">&minus;</button><output id="q${i}">0</output><button type="button" aria-label="More" data-i="${i}" data-d="1">+</button></div>`;
     itemsEl.appendChild(d);
   });
