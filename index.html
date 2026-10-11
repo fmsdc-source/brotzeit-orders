@@ -46,6 +46,7 @@
   button.submit{width:100%;margin-top:10px;padding:16px;background:var(--ink);color:var(--paper);border:0;font:inherit;font-weight:400;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;cursor:pointer;transition:background .25s}
   button.submit:hover{background:var(--copper)}
   button.submit:disabled{opacity:.5;cursor:wait}
+  .allergen{font-size:.75rem;color:var(--muted);margin:14px 0 0;line-height:1.5}
   .note{text-align:center;font-size:.75rem;color:var(--muted);margin-top:16px}
   .error{color:#a3402a;font-size:.85rem;text-align:center;margin-top:12px;min-height:1em}
   .hp{position:absolute;left:-9999px}
@@ -74,6 +75,12 @@
       <legend>Your Bread</legend>
       <div id="items"></div>
       <div class="total"><span>Estimated total</span><strong id="total">$0.00</strong></div>
+      <p class="allergen">Contains wheat, rye and gluten. Seeded loaves contain chia, flax and hemp. Please tell us about any allergies in the notes below.</p>
+      <label>Slicing</label>
+      <div class="choices">
+        <label><input type="radio" name="slicing" value="Unsliced" checked><span>Unsliced</span></label>
+        <label><input type="radio" name="slicing" value="Sliced"><span>Sliced</span></label>
+      </div>
     </fieldset>
 
     <fieldset>
